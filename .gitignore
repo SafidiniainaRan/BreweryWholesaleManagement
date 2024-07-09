@@ -1,0 +1,121 @@
+# User-specific files
+*.rsuser
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files (Mono)
+monodevelopWorkspace.xml
+
+# Mono auto generated files
+mono_crash.*
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Visual Studio 2019
+.vscode
+.vscode/*
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+
+# Visual Studio 2022
+.vscode/
+.vscode/*
+.vscode/extensions.json
+.vscode/launch.json
+.vscode/settings.json
+.vscode/tasks.json
+
+# .NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# StyleCop
+StyleCopReport.xml
+
+# ASP.NET Core
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+# VS Code directories
+.vscode/
+.vscode/*
+
+# Local History for Visual Studio
+.localhistory/
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# JetBrains Rider
+.idea/
+.idea/*
+
+# Rider project files
+*.sln.iml
+
+# User-specific files (VSCode)
+.vscode/
+
+# Coverage and Test results
+coverage/
+TestResults/
+
+# Logs
+*.log
+
+# NPM
+node_modules/
+
+# Yarn
+.yarn/
+.pnp.*
+
+# NuGet
+*.nupkg
+*.snupkg
+.nuget/
+
+# Entity Framework
+*.edmx.diagram
+*.edmx.sql
+
+# VS Code directories
+.vscode/
+.vscode/*
+
+# Visual Studio cache and config files
+.vs/
+.vscode/
+.vscode/*
+.vscode/settings.json
+.vscode/tasks.json
+.vscode/launch.json
+.vscode/extensions.json
+
+# DotNetCore
+project.lock.json
+project.fragment.lock.json
+artifacts/
