@@ -121,5 +121,7 @@ project.fragment.lock.json
 artifacts/
 
 #
+BreweryWholesaleManagement/bin/
+BreweryWholesaleManagement/obj/
 BreweryWholesaleManagement/bin/*
 BreweryWholesaleManagement/obj/*
