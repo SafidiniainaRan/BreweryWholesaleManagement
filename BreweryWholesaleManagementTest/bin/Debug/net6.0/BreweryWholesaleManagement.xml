@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BreweryWholesaleManagement</name>
+    </assembly>
+    <members>
+        <member name="M:BreweryWholesaleManagement.Controllers.BrewersController.AddBeer(System.Int32,BreweryWholesaleManagement.Models.Requests.AddBeerBrewerRequest)">
+            <summary>
+            A brewer can add new beer
+            </summary>
+        </member>
+        <member name="M:BreweryWholesaleManagement.Controllers.BrewersController.DeleteBeer(System.Int32,System.Int32)">
+            <summary>
+            A brewer can delete a beer.
+            </summary>
+        </member>
+        <member name="M:BreweryWholesaleManagement.Controllers.BrewersController.GetBeersByBrewer(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            List all the beers by brewery.
+            </summary>
+        </member>
+        <member name="M:BreweryWholesaleManagement.Controllers.WholesalersController.AddBeerSale(System.Int32,BreweryWholesaleManagement.Models.Requests.BeerSaleRequest)">
+            <summary>
+            Add the sale of an existing beer to an existing wholesaler
+            </summary>
+        </member>
+        <member name="M:BreweryWholesaleManagement.Controllers.WholesalersController.GetBeerWholesaler(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            List all Beer By wholesale
+            </summary>
+        </member>
+        <member name="M:BreweryWholesaleManagement.Controllers.WholesalersController.GetQuote(System.Int32,BreweryWholesaleManagement.Models.Requests.QuoteRequest)">
+            <summary>
+            A client can request a quote from a wholesaler
+            </summary>
+        </member>
+        <member name="M:BreweryWholesaleManagement.Controllers.WholesalersController.UpdateBeerStock(System.Int32,System.Int32,BreweryWholesaleManagement.Models.Requests.BeerStockRequest)">
+            <summary>
+            wholesaler can update the remaining quantity of a beer in his stock
+            </summary>
+        </member>
+    </members>
+</doc>
