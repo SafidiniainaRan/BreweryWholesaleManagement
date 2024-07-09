@@ -125,3 +125,4 @@ BreweryWholesaleManagement/bin/
 BreweryWholesaleManagement/obj/
 BreweryWholesaleManagement/bin/*
 BreweryWholesaleManagement/obj/*
+/BreweryWholesaleManagementTest/obj/Debug/net6.0
