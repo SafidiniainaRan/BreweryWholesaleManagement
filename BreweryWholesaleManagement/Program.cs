@@ -1,6 +1,7 @@
 using BreweryWholesaleManagement.Data;
 using BreweryWholesaleManagement.Middlewares;
 using BreweryWholesaleManagement.Repositories;
+using BreweryWholesaleManagement.Services;
 using Microsoft.EntityFrameworkCore;
 
 internal class Program
@@ -14,6 +15,9 @@ internal class Program
                    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
         builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
+        builder.Services.AddTransient<IBrewerRepository, BrewerRepository>();
+
+        builder.Services.AddTransient<IBrewerService, BrewerService>();
 
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
