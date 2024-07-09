@@ -63,5 +63,29 @@ namespace BreweryWholesaleManagement.Repositories
                          };
             return await PaginationService<BeerWholesalerModelView>.CreateAsync(source, pageIndex, pageSize);
         }
+
+        public async Task UpdateBeerStockAsync(WholesalerStock wholesalerStock)
+        {
+            if (!(await _beerRepository.IsExistAsync(wholesalerStock.BeerId)))
+                throw new Exception(String.Format(Constantes.ErrorMessages.ElementWithIdMustExist, nameof(Beer), wholesalerStock.BeerId));
+
+            if (!(await _wholesalerRepository.IsExistAsync(wholesalerStock.WholesalerId)))
+                throw new Exception(String.Format(Constantes.ErrorMessages.ElementWithIdMustExist, nameof(Wholesaler), wholesalerStock.WholesalerId));
+
+            var stock = _context.WholesalerStocks
+                                .Where(w => w.WholesalerId == wholesalerStock.WholesalerId &&
+                                        w.BeerId == wholesalerStock.BeerId &&
+                                        w.DeletedAt == null)
+                                .FirstOrDefault();
+            if (stock != null)
+            {
+                stock.Quantity = wholesalerStock.Quantity;
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                throw new Exception(String.Format(Constantes.ErrorMessages.BeerMustBeSoldByWholesaler, wholesalerStock.BeerId));
+            }
+        }
     }
 }

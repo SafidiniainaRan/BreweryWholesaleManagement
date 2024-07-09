@@ -7,5 +7,6 @@ namespace BreweryWholesaleManagement.Services
     {
         Task AddBeerSaleAsync(WholesalerStock wholesalerStock);
         Task<PaginatedList<BeerWholesalerModelView>> GetBeerByWholesalerAsync(int wholesalerId, int pageIndex, int pageSize);
+        Task UpdateBeerStockAsync(WholesalerStock wholesalerStock);
     }
 }

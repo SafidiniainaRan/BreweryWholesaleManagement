@@ -34,5 +34,13 @@ namespace BreweryWholesaleManagement.Controllers
             var beers = await _wholesalerService.GetBeerByWholesalerAsync(wholesalerId, pageIndex, pageSize);
             return Ok(beers);
         }
+
+        [HttpPut("{wholesalerId}/beers/{beerId}")]
+        public async Task<IActionResult> UpdateBeerStock(int wholesalerId, int beerId, BeerStockRequest stock)
+        {
+            WholesalerStock wholesalerStock = _wholesalerStockMapper.Map(wholesalerId, beerId, stock);
+            await _wholesalerService.UpdateBeerStockAsync(wholesalerStock);
+            return Ok();
+        }
     }
 }

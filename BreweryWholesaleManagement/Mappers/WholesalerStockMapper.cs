@@ -16,5 +16,17 @@ namespace BreweryWholesaleManagement.Mappers
                 DeletedAt = null
             };
         }
+
+        public WholesalerStock Map(int wholesalerId, int beerId, BeerStockRequest stock)
+        {
+            return new WholesalerStock
+            {
+                WholesalerId = wholesalerId,
+                BeerId = beerId,
+                Quantity = stock.Quantity,
+                CreatedAt = DateTime.Now,
+                DeletedAt = null
+            };
+        }
     }
 }

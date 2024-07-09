@@ -22,5 +22,10 @@ namespace BreweryWholesaleManagement.Services
         {
             return await _wholesalerRepository.GetBeerByWholesalerAsync(wholesalerId, pageIndex, pageSize);
         }
+
+        public async Task UpdateBeerStockAsync(WholesalerStock wholesalerStock)
+        {
+            await _wholesalerRepository.UpdateBeerStockAsync(wholesalerStock);
+        }
     }
 }
