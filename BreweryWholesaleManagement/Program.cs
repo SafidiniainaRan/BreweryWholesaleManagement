@@ -16,11 +16,14 @@ internal class Program
                    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 
         builder.Services.AddScoped<IBeerMapper, BeerMapper>();
+        builder.Services.AddScoped<IWholesalerStockMapper, WholesalerStockMapper>();
 
         builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         builder.Services.AddTransient<IBrewerRepository, BrewerRepository>();
+        builder.Services.AddTransient<IWholesalerRepository, WholesalerRepository>();
 
         builder.Services.AddTransient<IBrewerService, BrewerService>();
+        builder.Services.AddTransient<IWholesalerService, WholesalerService>();
 
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

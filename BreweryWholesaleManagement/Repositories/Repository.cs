@@ -50,7 +50,7 @@ namespace BreweryWholesaleManagement.Repositories
 
         public Task<bool> IsExistAsync(int id)
         {
-            return _context.Set<T>().AnyAsync(e => e.Id == id);
+            return _context.Set<T>().AnyAsync(e => e.Id == id && e.DeletedAt == null);
         }
     }
 }
