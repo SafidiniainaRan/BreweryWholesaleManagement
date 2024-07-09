@@ -20,6 +20,9 @@ namespace BreweryWholesaleManagement.Controllers
             _wholesalerStockMapper = wholesarStockMapper;
         }
 
+        /// <summary>
+        /// Add the sale of an existing beer to an existing wholesaler
+        /// </summary>
         [HttpPost("{wholesalerId}/beers")]
         public async Task<IActionResult> AddBeerSale(int wholesalerId, BeerSaleRequest beerSale)
         {
@@ -28,6 +31,9 @@ namespace BreweryWholesaleManagement.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// List all Beer By wholesale
+        /// </summary>
         [HttpGet("{wholesalerId}/beers")]
         public async Task<IActionResult> GetBeerWholesaler(int wholesalerId, int pageIndex = Constantes.Pagination.PageIndex, int pageSize = Constantes.Pagination.PageSize)
         {
@@ -35,6 +41,9 @@ namespace BreweryWholesaleManagement.Controllers
             return Ok(beers);
         }
 
+        /// <summary>
+        /// A client can request a quote from a wholesaler
+        /// </summary>
         [HttpPost("{wholesalerId}/quotes")]
         public async Task<IActionResult> GetQuote(int wholesalerId, [FromBody] QuoteRequest quoteRequest)
         {
@@ -42,6 +51,9 @@ namespace BreweryWholesaleManagement.Controllers
             return Ok(quoteResponse);
         }
 
+        /// <summary>
+        /// wholesaler can update the remaining quantity of a beer in his stock
+        /// </summary>
         [HttpPut("{wholesalerId}/beers/{beerId}")]
         public async Task<IActionResult> UpdateBeerStock(int wholesalerId, int beerId, BeerStockRequest stock)
         {

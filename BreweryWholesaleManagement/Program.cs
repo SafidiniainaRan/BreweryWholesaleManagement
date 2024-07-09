@@ -4,6 +4,8 @@ using BreweryWholesaleManagement.Middlewares;
 using BreweryWholesaleManagement.Repositories;
 using BreweryWholesaleManagement.Services;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.OpenApi.Models;
+using System.Reflection;
 
 internal class Program
 {
@@ -29,7 +31,18 @@ internal class Program
         builder.Services.AddControllers();
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
         builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();
+        builder.Services.AddSwaggerGen(options =>
+        {
+            options.SwaggerDoc("v1", new OpenApiInfo
+            {
+                Version = "v1",
+                Title = "Brewery and wholesale management API",
+                Description = "Management system for breweries and wholesalers. ",
+
+            });
+            var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+            options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
+        });
 
         var app = builder.Build();
         using (var scope = app.Services.CreateScope())

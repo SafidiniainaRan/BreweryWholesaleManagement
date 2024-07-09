@@ -20,6 +20,9 @@ namespace BreweryWholesaleManagement.Controllers
             _beerMapper = beerMapper;
         }
 
+        /// <summary>
+        /// A brewer can add new beer
+        /// </summary>
         [HttpPost("{breweryId}/beers")]
         public async Task<IActionResult> AddBeer(int breweryId, [FromBody] AddBeerBrewerRequest beer)
         {
@@ -28,6 +31,9 @@ namespace BreweryWholesaleManagement.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// A brewer can delete a beer.
+        /// </summary>
         [HttpDelete("{breweryId}/beers/{beerId}")]
         public async Task<IActionResult> DeleteBeer(int breweryId, int beerId)
         {
@@ -35,6 +41,9 @@ namespace BreweryWholesaleManagement.Controllers
             return Ok();
         }
 
+        /// <summary>
+        /// List all the beers by brewery.
+        /// </summary>
         [HttpGet("{brewerId}/beers")]
         public async Task<IActionResult> GetBeersByBrewer(int brewerId, int pageIndex = Constantes.Pagination.PageIndex, int pageSize = Constantes.Pagination.PageSize)
         {

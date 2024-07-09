@@ -67,3 +67,5 @@ D:\Perso\Dev\c#\Evaluation\BreweryWholesaleManagement\BreweryWholesaleManagement
 D:\Perso\Dev\c#\Evaluation\BreweryWholesaleManagement\BreweryWholesaleManagement\obj\Debug\net6.0\BreweryWholesaleManagement.pdb
 D:\Perso\Dev\c#\Evaluation\BreweryWholesaleManagement\BreweryWholesaleManagement\obj\Debug\net6.0\BreweryWholesaleManagement.genruntimeconfig.cache
 D:\Perso\Dev\c#\Evaluation\BreweryWholesaleManagement\BreweryWholesaleManagement\obj\Debug\net6.0\ref\BreweryWholesaleManagement.dll
+D:\Perso\Dev\c#\Evaluation\BreweryWholesaleManagement\BreweryWholesaleManagement\bin\Debug\net6.0\BreweryWholesaleManagement.xml
+D:\Perso\Dev\c#\Evaluation\BreweryWholesaleManagement\BreweryWholesaleManagement\obj\Debug\net6.0\BreweryWholesaleManagement.xml
