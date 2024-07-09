@@ -18,6 +18,11 @@ namespace BreweryWholesaleManagement.Services
             await _breweryRepository.AddBeerAsync(brewerId, beer);
         }
 
+        public async Task DeleteBeerAsync(int breweryId, int beerId)
+        {
+            await _breweryRepository.DeleteBeerAsync(breweryId, beerId);
+        }
+
         public async Task<PaginatedList<BeerModelView>> GetBeerByBrewerAsync(int brewerId, int pageIndex, int pageSize)
         {
             return await _breweryRepository.GetBeerByBrewerAsync(brewerId, pageIndex, pageSize);

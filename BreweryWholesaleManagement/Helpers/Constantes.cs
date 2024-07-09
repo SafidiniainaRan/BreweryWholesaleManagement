@@ -9,6 +9,8 @@
         }
         public class ErrorMessages
         {
+            public const string ElementNotFound = "Element Not Found";
+            public const string ElementWithIdAlreadyDeleted = "{0} with id {1} is already deleted";
             public const string ElementWithIdNodFound = "{0} whith id {1} not found";
             public const string ElementWithIdMustExist = "{0} whith id {1} must exist";
             public const string WholesalerMustExist = "The wholesaler must exist";

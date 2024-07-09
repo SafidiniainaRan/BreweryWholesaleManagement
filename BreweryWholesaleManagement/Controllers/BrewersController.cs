@@ -28,6 +28,13 @@ namespace BreweryWholesaleManagement.Controllers
             return Ok();
         }
 
+        [HttpDelete("{breweryId}/beers/{beerId}")]
+        public async Task<IActionResult> DeleteBeer(int breweryId, int beerId)
+        {
+            await _brewerService.DeleteBeerAsync(breweryId, beerId);
+            return Ok();
+        }
+
         [HttpGet("{brewerId}/beers")]
         public async Task<IActionResult> GetBeersByBrewer(int brewerId, int pageIndex = Constantes.Pagination.PageIndex, int pageSize = Constantes.Pagination.PageSize)
         {

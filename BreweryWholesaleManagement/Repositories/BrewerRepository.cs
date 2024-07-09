@@ -3,6 +3,7 @@ using BreweryWholesaleManagement.Helpers;
 using BreweryWholesaleManagement.Models;
 using BreweryWholesaleManagement.ModelViews;
 using BreweryWholesaleManagement.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace BreweryWholesaleManagement.Repositories
 {
@@ -28,6 +29,23 @@ namespace BreweryWholesaleManagement.Repositories
             else
             {
                 throw new Exception(String.Format(Constantes.ErrorMessages.ElementWithIdNodFound, nameof(Brewer), brewerId));
+            }
+        }
+
+        public async Task DeleteBeerAsync(int breweryId, int beerId)
+        {
+            var beer = await _context.Beers
+                                     .Where(b => b.Id == beerId && b.BrewerId == breweryId)
+                                     .FirstOrDefaultAsync();
+            if (beer != null)
+            {
+                if (beer.DeletedAt != null) throw new Exception(String.Format(Constantes.ErrorMessages.ElementWithIdAlreadyDeleted, nameof(Beer), beerId));
+                beer.DeletedAt = DateTime.Now;
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                throw new Exception(Constantes.ErrorMessages.ElementNotFound);
             }
         }
 
