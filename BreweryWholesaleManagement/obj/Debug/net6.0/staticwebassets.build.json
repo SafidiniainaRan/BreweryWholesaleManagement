@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "mkuQ+vLmoJb0wSSr1+8sQyFS5ziO8/6vFJDv8WB0iSE=",
+  "Source": "BreweryWholesaleManagement",
+  "BasePath": "_content/BreweryWholesaleManagement",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
