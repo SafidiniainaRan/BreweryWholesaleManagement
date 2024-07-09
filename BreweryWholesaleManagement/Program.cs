@@ -1,4 +1,5 @@
 using BreweryWholesaleManagement.Data;
+using BreweryWholesaleManagement.Mappers;
 using BreweryWholesaleManagement.Middlewares;
 using BreweryWholesaleManagement.Repositories;
 using BreweryWholesaleManagement.Services;
@@ -13,6 +14,8 @@ internal class Program
         // Add services to the container.
         builder.Services.AddDbContext<BreweryContext>(options =>
                    options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+        builder.Services.AddScoped<IBeerMapper, BeerMapper>();
 
         builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
         builder.Services.AddTransient<IBrewerRepository, BrewerRepository>();

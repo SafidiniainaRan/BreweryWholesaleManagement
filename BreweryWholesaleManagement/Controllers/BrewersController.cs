@@ -1,4 +1,7 @@
 ﻿using BreweryWholesaleManagement.Helpers;
+using BreweryWholesaleManagement.Mappers;
+using BreweryWholesaleManagement.Models;
+using BreweryWholesaleManagement.Models.Requests;
 using BreweryWholesaleManagement.Services;
 using Microsoft.AspNetCore.Mvc;
 
@@ -9,10 +12,20 @@ namespace BreweryWholesaleManagement.Controllers
     public class BrewersController : ControllerBase
     {
         private readonly IBrewerService _brewerService;
-       
-        public BrewersController(IBrewerService breweryService)
+        private readonly IBeerMapper _beerMapper;
+
+        public BrewersController(IBrewerService breweryService, IBeerMapper beerMapper)
         {
             _brewerService = breweryService;
+            _beerMapper = beerMapper;
+        }
+
+        [HttpPost("{breweryId}/beers")]
+        public async Task<IActionResult> AddBeer(int breweryId, [FromBody] AddBeerBrewerRequest beer)
+        {
+            Beer _beer = _beerMapper.Map(beer);
+            await _brewerService.AddBeerAsync(breweryId, _beer);
+            return Ok();
         }
 
         [HttpGet("{brewerId}/beers")]

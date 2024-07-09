@@ -1,4 +1,5 @@
 ﻿using BreweryWholesaleManagement.Data;
+using BreweryWholesaleManagement.Helpers;
 using BreweryWholesaleManagement.Models;
 using BreweryWholesaleManagement.ModelViews;
 using BreweryWholesaleManagement.Services;
@@ -14,6 +15,20 @@ namespace BreweryWholesaleManagement.Repositories
         {
             _context = context;
             _repository = repository;
+        }
+
+        public async Task AddBeerAsync(int brewerId, Beer beer)
+        {
+            var brewer = await _repository.GetByIdAsync(brewerId);
+            if (brewer != null)
+            {
+                brewer.Beers = new List<Beer>() { beer };
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                throw new Exception(String.Format(Constantes.ErrorMessages.ElementWithIdNodFound, nameof(Brewer), brewerId));
+            }
         }
 
         public async Task<PaginatedList<BeerModelView>> GetBeerByBrewerAsync(int brewerId, int pageIndex, int pageSize)

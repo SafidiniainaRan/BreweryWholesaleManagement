@@ -13,6 +13,11 @@ namespace BreweryWholesaleManagement.Services
             _breweryRepository = breweryRepository;
         }
 
+        public async Task AddBeerAsync(int brewerId, Beer beer)
+        {
+            await _breweryRepository.AddBeerAsync(brewerId, beer);
+        }
+
         public async Task<PaginatedList<BeerModelView>> GetBeerByBrewerAsync(int brewerId, int pageIndex, int pageSize)
         {
             return await _breweryRepository.GetBeerByBrewerAsync(brewerId, pageIndex, pageSize);
