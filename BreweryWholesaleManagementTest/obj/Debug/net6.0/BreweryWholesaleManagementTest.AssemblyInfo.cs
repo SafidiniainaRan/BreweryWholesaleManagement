@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BreweryWholesaleManagementTest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bca7a85bd07c5ea90504468dccd08404ab5dc0ca")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+e5d418036d751aded9c1bcc85a2a7e30c3e49c2a")]
 [assembly: System.Reflection.AssemblyProductAttribute("BreweryWholesaleManagementTest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BreweryWholesaleManagementTest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
