@@ -35,6 +35,13 @@ namespace BreweryWholesaleManagement.Controllers
             return Ok(beers);
         }
 
+        [HttpPost("{wholesalerId}/quotes")]
+        public async Task<IActionResult> GetQuote(int wholesalerId, [FromBody] QuoteRequest quoteRequest)
+        {
+            var quoteResponse = await _wholesalerService.GetQuoteAsync(wholesalerId, quoteRequest);
+            return Ok(quoteResponse);
+        }
+
         [HttpPut("{wholesalerId}/beers/{beerId}")]
         public async Task<IActionResult> UpdateBeerStock(int wholesalerId, int beerId, BeerStockRequest stock)
         {

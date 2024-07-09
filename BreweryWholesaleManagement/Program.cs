@@ -23,6 +23,7 @@ internal class Program
         builder.Services.AddTransient<IWholesalerRepository, WholesalerRepository>();
 
         builder.Services.AddTransient<IBrewerService, BrewerService>();
+        builder.Services.AddTransient<IQuoteService, QuoteService>();
         builder.Services.AddTransient<IWholesalerService, WholesalerService>();
 
         builder.Services.AddControllers();

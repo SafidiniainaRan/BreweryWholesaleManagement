@@ -49,6 +49,18 @@ namespace BreweryWholesaleManagement.Repositories
             await _context.SaveChangesAsync();
         }
 
+        public async Task<WholeSalerModelView?> FindById(int wholesarId)
+        {
+            return await _context.Wholesalers
+                                 .Where(x => x.Id == wholesarId && x.DeletedAt == null)
+                                 .Select(x => new WholeSalerModelView
+                                 {
+                                     Id = x.Id,
+                                     Name = x.Name
+                                 })
+                                 .FirstOrDefaultAsync();
+        }
+
         public async Task<PaginatedList<BeerWholesalerModelView>> GetBeerByWholesalerAsync(int wholesalerId, int pageIndex, int pageSize)
         {
             var source = from beer in _context.Beers
@@ -62,6 +74,21 @@ namespace BreweryWholesaleManagement.Repositories
                              UnitPrice = beer.Price
                          };
             return await PaginationService<BeerWholesalerModelView>.CreateAsync(source, pageIndex, pageSize);
+        }
+
+        public async Task<List<BeerWholesalerModelView>> GetBeerByWholesalerAsync(int wholesalerId, List<int> beerIds)
+        {
+            var source = from beer in _context.Beers
+                         join ws in _context.WholesalerStocks on beer.Id equals ws.BeerId
+                         where ws.WholesalerId == wholesalerId && beerIds.Contains(ws.BeerId) && ws.DeletedAt == null
+                         select new BeerWholesalerModelView
+                         {
+                             BeerId = beer.Id,
+                             Name = beer.Name,
+                             RemainingQuantity = ws.Quantity,
+                             UnitPrice = beer.Price
+                         };
+            return await source.ToListAsync();
         }
 
         public async Task UpdateBeerStockAsync(WholesalerStock wholesalerStock)
